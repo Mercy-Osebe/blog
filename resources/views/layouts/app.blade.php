@@ -9,9 +9,15 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{{asset('css/blog-home.css')}}">
+    <link rel="stylesheet" href="{{asset('css/blog-post.css')}}">
+    <link rel="stylesheet" href="{{asset('css/sb-admin-2.css')}}">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
