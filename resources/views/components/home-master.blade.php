@@ -15,6 +15,7 @@
 
   <!-- Custom styles for this template -->
   <link href="{{asset('css/blog-home.css')}}" rel="stylesheet">
+  <link href="{{asset('css/home_images.css')}}" rel="stylesheet">
 
 </head>
 
@@ -42,9 +43,15 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin.index')}}">Admin</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
           @else
           <li class="nav-item">
             <a class="nav-link" href="{{url('/login')}}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('/register')}}">Register</a>
           </li>
 
 
