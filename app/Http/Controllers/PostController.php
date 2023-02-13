@@ -17,7 +17,9 @@ class PostController extends Controller
     public function index()
     {
         //
-        return view('blog-post');
+        $posts=Post::all();
+
+        return view('admin.posts.index',['posts'=>$posts]);
     }
 
     /**
@@ -117,5 +119,9 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        $post=Post::findorFail($id);
+        $post->delete();
+
+        return redirect('/admin');
     }
 }
