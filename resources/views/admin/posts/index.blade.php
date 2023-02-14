@@ -1,6 +1,19 @@
 <x-admin-master>
     @section('content')
 
+    @if(Session::has('msg'))
+    <p class="text-success alert alert-success">
+        {{session('msg')}}
+    </p>
+
+
+    @elseif(Session('update_msg'))
+    <p class="text-success alert alert-success">
+        {{session('update_msg')}}
+    </p>
+
+    @endif
+
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -48,18 +61,20 @@
                             <td>{{$post->created_at->diffForHumans()}}</td>
                             <td>{{$post->updated_at}}</td>
                             <td>
+                                @can('view',$post)
                                 <form action="{{route('post.destroy',$post->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-primary" style="color:white" >DELETE</button>
+                                    <button type="submit" class="btn btn-primary" style="color:white">DELETE</button>
                                 </form>
+
+                                @endcan
                             </td>
                             <td>
-                                <form action="{{route('post.update',$post->id)}}" method="POST">
-                                    @csrf
-                                    @method('PUT')
-                                    <button type="submit" class="btn btn-primary" style="color:white" >UPDATE</button>
-                                </form>
+                                <button class="btn btn-primary" style="color:white">
+                                <a href="{{route('post.edit',$post->id)}}">UPDATE</a>
+                                </button>
+
                             </td>
                         </tr>
                         @endforeach
@@ -95,7 +110,7 @@
     @endforeach
 </div> -->
 
-    
+
     @section('scripts')
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>

@@ -1,11 +1,11 @@
 <x-admin-master>
     @section('content')
-    @if(Session::has('msg'))
-    <p class="text-success">
-        {{session('msg')}}
+    @if(Session::has('deletemsg'))
+    <p class="text-success alert alert-danger">
+        {{session('deletemsg')}}
     </p>
-    
-@endif
+
+    @endif
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
